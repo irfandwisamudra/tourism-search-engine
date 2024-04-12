@@ -276,6 +276,23 @@
 
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
   <script>
+    $(document).ready(function() {
+      $("#search-button").click(function() {
+        var search = $("#search").val();
+        var rank = $("#rank").val();
+        $.ajax({
+          url: '/search?q=' + search + '&rank=' + rank,
+          dataType: "json",
+          success: function(data) {
+            $('#content').html(data);
+          },
+          error: function(data) {
+            alert("Please insert your command");
+          }
+        });
+      });
+    });
+
     var themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
     var themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
 
