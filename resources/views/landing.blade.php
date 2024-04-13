@@ -278,7 +278,7 @@
   <script>
     $(document).ready(function() {
       $("#search-button").click(function() {
-        var search = $("#search").val();
+        var search = $("#search").val().toLowerCase();
         var rank = $("#rank").val();
         $.ajax({
           url: '/search?q=' + search + '&rank=' + rank,
